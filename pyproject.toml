@@ -16,9 +16,10 @@ dependencies = [
 
 [project.optional-dependencies]
 test = ["pytest==8.3.3"]
+lint = ["ruff==0.15.4"]
 typecheck = ["basedpyright==1.38.2"]
 hook = [
-    "ppo_from_scratch[typecheck]",
+    "ppo_from_scratch[lint,typecheck]",
     "pre_commit==4.0.1",
     "pytest==8.3.3",
 ]
