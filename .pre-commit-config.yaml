@@ -1,0 +1,42 @@
+default_stages: [pre-commit]
+default_language_version:
+  python: python3.12
+fail_fast: true
+exclude: "^(\\.git/|\\.mypy_cache/|\\.pytest_cache/|\\.ruff_cache/|dist/|build/|\\.venv/)"
+
+repos:
+  # Basic sanity hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-ast
+      - id: check-json
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: mixed-line-ending
+
+  # Ruff covers formatting, linting, and import sorting
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.4
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+      - id: ruff-format
+
+  # basedpyright for type-checking
+  - repo: local
+    hooks:
+      - id: basedpyright
+        name: basedpyright
+        entry: bash
+        language: system
+        types: [python]
+        pass_filenames: false
+        args:
+          - -c
+          - >
+            basedpyright
+            --pythonpath "$(python -c 'import sys; print(sys.executable)')"
+            --project pyrightconfig.json

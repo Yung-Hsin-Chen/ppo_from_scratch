@@ -1,0 +1,10 @@
+{
+  "include": ["src", "tests"],
+  "exclude": ["**/__pycache__", ".venv/"],
+  "extraPaths": ["src"],
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "standard",
+  "reportAttributeAccessIssue": "error",
+  "reportUndefinedVariable": "error",
+  "reportUninitializedInstanceVariable": "error"
+}
