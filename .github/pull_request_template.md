@@ -5,7 +5,7 @@ Describe the change briefly.
 ## Validation
 
 - [ ] Ran `make ci` locally (lint + typecheck + test)
-- [ ] Added/updated tests for the change, if applicable
+- [ ] Added/updated tests for the change
 
 ## Notes
 
