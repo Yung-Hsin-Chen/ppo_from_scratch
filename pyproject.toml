@@ -23,7 +23,7 @@ hook = [
     "pre_commit==4.0.1",
     "pytest==8.3.3",
 ]
-dev = ["ppo_from_scratch[test,hook,typecheck]"]
+dev = ["ppo_from_scratch[test,hook,lint,typecheck]"]
 
 [tool.setuptools]
 include-package-data = false
